@@ -1,1 +1,23 @@
-{% extends 'base.html' %}{% block body %}<h2>Login - Step 2</h2><p>Demo current OTP: <code>{{demo_code}}</code></p><form method="post"><input name="code" placeholder="6-digit code" required><button>Verify</button></form>{% endblock %}
+{% extends 'base.html' %}
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col-lg-5 col-md-7">
+        <div class="glass-card p-4 p-md-5 text-center">
+            <span class="mini-icon mb-3"><i class="bi bi-phone-lock"></i></span>
+            <h2 class="fw-bold mb-2">Login - Step 2</h2>
+            <p class="text-muted">Enter your one-time verification code to finish login.</p>
+            <div class="mb-4">
+                <div class="text-muted small mb-2">Demo current OTP</div>
+                <span class="code-box">{{demo_code}}</span>
+            </div>
+            <form method="post" class="d-grid gap-3 text-start">
+                <div>
+                    <label class="form-label fw-semibold">6-digit Code</label>
+                    <input class="form-control text-center fs-5 fw-bold" name="code" placeholder="000000" required>
+                </div>
+                <button class="btn-primary-custom justify-content-center" type="submit"><i class="bi bi-shield-check"></i>Verify</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

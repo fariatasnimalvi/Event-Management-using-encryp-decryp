@@ -1,1 +1,38 @@
-{% extends 'base.html' %}{% block body %}<h1>Event/Club Management System</h1><p>Secure event management system with advanced security features.</p><a class="btn" href="/register">Register</a><a class="btn" href="/login">Login</a>{% endblock %}
+{% extends 'base.html' %}
+{% block body %}
+<section class="hero-card p-4 p-md-5 mb-4">
+    <div class="hero-content row align-items-center g-4">
+        <div class="col-lg-7">
+            <span class="soft-label mb-3"><i class="bi bi-lock-fill"></i>Everything is secured</span>
+            <h1 class="display-5 fw-bold mb-3">Event Management System</h1>
+            <p class="lead text-white-50 mb-4">Event management system with cryptographic security measures.</p>
+            <div class="d-flex flex-wrap gap-3">
+                <a class="btn-primary-custom" href="/register"><i class="bi bi-person-plus-fill"></i>Create Account</a>
+                <a class="btn-ghost" href="/login"><i class="bi bi-box-arrow-in-right"></i>Login</a>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="glass-card p-4 text-dark">
+                <h5 class="fw-bold mb-3"><i class="bi bi-database-lock me-2 text-primary"></i>Security Modules</h5>
+                <div class="d-flex flex-wrap gap-2">
+                    <span class="security-pill">RSA</span>
+                    <span class="security-pill">ECC</span>
+                    <span class="security-pill">HMAC</span>
+                    <span class="security-pill">SHA-256</span>
+                    <span class="security-pill">2FA</span>
+                    <span class="security-pill">RBAC</span>
+                    <span class="security-pill">MongoDB</span>
+                </div>
+                <hr>
+                <p class="mb-0 text-muted">Sensitive data is encrypted before storage and verified during retrieval.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="row g-3">
+    <div class="col-md-4"><div class="stat-card p-4 h-100"><span class="mini-icon mb-3"><i class="bi bi-key-fill"></i></span><h5 class="fw-bold">Key Management</h5><p class="text-muted mb-0">RSA/ECC keys with active and rotated states.</p></div></div>
+    <div class="col-md-4"><div class="stat-card p-4 h-100"><span class="mini-icon mb-3"><i class="bi bi-fingerprint"></i></span><h5 class="fw-bold">Two-Step Login</h5><p class="text-muted mb-0">Password verification plus OTP confirmation.</p></div></div>
+    <div class="col-md-4"><div class="stat-card p-4 h-100"><span class="mini-icon mb-3"><i class="bi bi-shield-check"></i></span><h5 class="fw-bold">Integrity Check</h5><p class="text-muted mb-0">HMAC detects unauthorized database changes.</p></div></div>
+</div>
+{% endblock %}

@@ -1,1 +1,30 @@
-{% extends 'base.html' %}{% block body %}<h2>{{'Edit' if post else 'Create'}} Post</h2><form method="post"><input name="title" placeholder="Title" value="{{post.title if post else ''}}" required><textarea name="body" placeholder="Body" required>{{post.body if post else ''}}</textarea><button>Save</button></form>{% endblock %}
+{% extends 'base.html' %}
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="glass-card p-4 p-md-5">
+            <div class="d-flex align-items-center gap-3 mb-4">
+                <span class="mini-icon"><i class="bi bi-pencil-square"></i></span>
+                <div>
+                    <h2 class="fw-bold mb-1">{{'Edit' if post else 'Create'}} Post</h2>
+                    <p class="text-muted mb-0">Post data will be encrypted before being stored.</p>
+                </div>
+            </div>
+            <form method="post" class="d-grid gap-3">
+                <div>
+                    <label class="form-label fw-semibold">Post Title</label>
+                    <input class="form-control" name="title" placeholder="Title" value="{{post.title if post else ''}}" required>
+                </div>
+                <div>
+                    <label class="form-label fw-semibold">Post Body</label>
+                    <textarea class="form-control" name="body" rows="7" placeholder="Write event or club announcement" required>{{post.body if post else ''}}</textarea>
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                    <button class="btn-primary-custom" type="submit"><i class="bi bi-save"></i>Save</button>
+                    <a class="btn btn-outline-secondary rounded-4 fw-semibold px-4" href="/dashboard">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

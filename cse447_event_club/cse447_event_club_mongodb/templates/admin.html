@@ -1,1 +1,60 @@
-{% extends 'base.html' %}{% block body %}<h2>Admin Panel</h2><h3>Users</h3>{% for u in users %}<p>#{{u.id}} {{u.username}} | {{u.email}} | {{u.role}}</p>{% endfor %}<h3>Key Management</h3>{% for k in keys %}<p>{{k.name}} | {{k.algorithm}} | {{k.status}}</p>{% endfor %}<form method="post" action="/admin/rotate"><button>Rotate RSA and ECC keys</button></form>{% endblock %}
+{% extends 'base.html' %}
+{% block body %}
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+    <div>
+        <span class="soft-label mb-2"><i class="bi bi-sliders"></i>Admin Control Center</span>
+        <h2 class="fw-bold mb-0">Admin Panel</h2>
+    </div>
+    <form method="post" action="/admin/rotate">
+        <button class="btn-primary-custom" type="submit"><i class="bi bi-arrow-repeat"></i>Rotate RSA and ECC Keys</button>
+    </form>
+</div>
+
+<div class="row g-4">
+    <div class="col-lg-6">
+        <div class="glass-card p-4 h-100">
+            <h3 class="h5 fw-bold mb-3"><i class="bi bi-people-fill me-2 text-primary"></i>Users</h3>
+            <div class="table-responsive">
+                <table class="table align-middle">
+                    <thead><tr><th>ID</th><th>Username</th><th>Email</th><th>Role</th></tr></thead>
+                    <tbody>
+                    {% for u in users %}
+                        <tr>
+                            <td>#{{u.id}}</td>
+                            <td class="fw-semibold">{{u.username}}</td>
+                            <td>{{u.email}}</td>
+                            <td><span class="badge rounded-pill text-bg-primary">{{u.role}}</span></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="glass-card p-4 h-100">
+            <h3 class="h5 fw-bold mb-3"><i class="bi bi-key-fill me-2 text-primary"></i>Key Management</h3>
+            <div class="table-responsive">
+                <table class="table align-middle">
+                    <thead><tr><th>Name</th><th>Algorithm</th><th>Status</th></tr></thead>
+                    <tbody>
+                    {% for k in keys %}
+                        <tr>
+                            <td class="fw-semibold">{{k.name}}</td>
+                            <td>{{k.algorithm}}</td>
+                            <td>
+                                {% if k.status == 'active' %}
+                                    <span class="badge rounded-pill text-bg-success">{{k.status}}</span>
+                                {% else %}
+                                    <span class="badge rounded-pill text-bg-secondary">{{k.status}}</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
