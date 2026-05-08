@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block body %}<h2>{{'Edit' if post else 'Create'}} Post</h2><form method="post"><input name="title" placeholder="Title" value="{{post.title if post else ''}}" required><textarea name="body" placeholder="Body" required>{{post.body if post else ''}}</textarea><button>Save</button></form>{% endblock %}

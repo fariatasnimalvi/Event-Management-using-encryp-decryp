@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block body %}<h2>Admin Panel</h2><h3>Users</h3>{% for u in users %}<p>#{{u.id}} {{u.username}} | {{u.email}} | {{u.role}}</p>{% endfor %}<h3>Key Management</h3>{% for k in keys %}<p>{{k.name}} | {{k.algorithm}} | {{k.status}}</p>{% endfor %}<form method="post" action="/admin/rotate"><button>Rotate RSA and ECC keys</button></form>{% endblock %}
